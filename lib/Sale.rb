@@ -1,10 +1,17 @@
 class Sale < ActiveRecord::Base
-  attr_reader :cashier_name, :item, :quantity
+  has_many(:products)
 
-  def sale(attributes)
-    @cashier_name = attributes[:cashier_name]
-    @item = attributes[:item]
-    @quantity = attributes[:quantity]
+  def quantity
+    self[:quantity]
+  end
+
+  def product_price
+    @product = Product.where({:id => self[:product_id]}).first
+    product[:price]
+  end
+
+  def sale_total
+    @sale_total = item_price * quantity
   end
 
 end

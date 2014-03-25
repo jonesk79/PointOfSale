@@ -1,3 +1,4 @@
 class Product < ActiveRecord::Base
-  attr_reader :name, :price
+  belongs_to :sales
+
 end

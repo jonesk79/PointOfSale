@@ -1,5 +1,6 @@
 class Cashier < ActiveRecord::Base
-  attr_reader :name, :password, :quantity, :receipt, :final_total, :all_receipts
+  has_many :sales
+  has_many :products, through: :sales
 
   def view_products
     Product.all

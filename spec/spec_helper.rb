@@ -1,6 +1,7 @@
 require 'active_record'
 require 'rspec'
 require 'pg'
+require 'shoulda-matchers'
 
 require 'manager'
 require 'product'
